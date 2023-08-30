@@ -1,6 +1,8 @@
+"use client";
 import ArrowRightIcon from "@/components/Icons/ArrowRightIcon";
 import Container from "@/components/UI/Container";
 import Image from "next/image";
+import { Fade } from "react-awesome-reveal";
 
 function Card({ avatar }: { avatar: string }) {
   return (
@@ -41,23 +43,34 @@ function Card({ avatar }: { avatar: string }) {
     </div>
   );
 }
+
 export function ServicesSection({}) {
   return (
     <section className="mt-10 py-[90px]">
       <Container>
         <div className="flex flex-col mb-20">
-          <h1 className="text-[#1F1F26] text-[40px] font-semibold text-center">
-            Solutions for every need
-          </h1>
-          <p className="text-center text-base text-[#426666] font-extrabold leading-7 tracking-[0.16px]">
-            Join thousands of marketers and entrepreneurs for a 2-day event at
-            <br />
-            the forefront of social commerce.
-          </p>
+          <Fade triggerOnce direction="up">
+            <h1 className="text-[#1F1F26] text-[40px] font-semibold text-center">
+              Solutions for every need
+            </h1>
+          </Fade>
+          <Fade triggerOnce direction="up" delay={300}>
+            <p className="text-center text-base text-[#426666] font-extrabold leading-7 tracking-[0.16px]">
+              Join thousands of marketers and entrepreneurs for a 2-day event at
+              <br />
+              the forefront of social commerce.
+            </p>
+          </Fade>
           <div className="flex items-center mt-20 gap-x-6">
-            <Card avatar={"/solution-1.png"} />
-            <Card avatar={"/solution-2.png"} />
-            <Card avatar={"/solution-3.png"} />
+            {[
+              { avatar: "/solution-1.png" },
+              { avatar: "/solution-2.png" },
+              { avatar: "/solution-3.png" },
+            ].map((item, index) => (
+              <Fade triggerOnce key={index} direction="up" delay={300 * index}>
+                <Card {...item} key={item.avatar} />
+              </Fade>
+            ))}
           </div>
         </div>
       </Container>

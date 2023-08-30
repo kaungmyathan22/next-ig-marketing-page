@@ -22,7 +22,7 @@ export function Hero() {
       <div className="z-10 w-full top-[90px] inset-x-0 relative">
         <Container className="relative">
           <div className="flex gap-x-[112px]">
-            <Fade delay={50} cascade triggerOnce>
+            <Fade direction="up" triggerOnce>
               <div className="relative w-[565px]">
                 <div className="flex flex-col items-start absolute top-[280px]">
                   <h1 className="text-[#111439] font-bold text-[94px] leading-[108px] gradient-text">
