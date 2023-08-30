@@ -1,7 +1,15 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 
-const Container = ({ children }: { children: React.ReactNode }) => {
-  return <div className="max-w-6xl mx-auto">{children}</div>;
+interface ContainerProps extends InputHTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+}
+
+const Container = ({ children, ...props }: ContainerProps) => {
+  return (
+    <div {...props} className={`max-w-6xl mx-auto ${props.className ?? ""}`}>
+      {children}
+    </div>
+  );
 };
 
 export default Container;
